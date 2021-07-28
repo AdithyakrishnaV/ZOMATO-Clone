@@ -32,7 +32,11 @@ const RestaurantSchema = new mongoose.Schema({
            ref: "Images"
         }
     ],
-});
+  },
+  {
+   timestamps: true,
+  }
+);
 
 
 export const RestaurantModel = mongoose.model("Restaurants", RestaurantSchema);
