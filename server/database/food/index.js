@@ -1,32 +1,31 @@
-import mongoose from "mongoose";
+import mongoose, { mongo } from "mongoose";
 
-
-const FoodSchema = new mongoose.Schema({
+const FoodSchema = new mongoose.Schema(
+  {
     name: { type: String, required: true },
-    description: { type: String, required: true },
+    descript: { type: String, required: true },
     isVeg: { type: Boolean, required: true },
     isContainsEgg: { type: Boolean, required: true },
     category: { type: String, required: true },
     photos: {
-        type: mongoose.Type.ObjectId,
-        ref: "Images",
+      type: mongoose.Types.ObjectId,
+      ref: "Images",
     },
     price: { type: Number, default: 150, required: true },
     addOns: [
       {
-        type: mongoose.Type.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: "Foods",
-      }
+      },
     ],
-
     restaurant: {
-        type: mongoose.Type.ObjectId,
-        ref: "Restaurents",
-        required: true,
-    }
+      type: mongoose.Types.ObjectId,
+      ref: "Restaurants",
+      required: true,
+    },
   },
   {
-   timestamps: true,
+    timestamps: true,
   }
 );
 

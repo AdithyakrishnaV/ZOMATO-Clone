@@ -31,8 +31,6 @@ UserSchema.statics.findByEmailAndPhone = async ({ email, phoneNumber }) => {
   return false;
 };
 
-
-
 UserSchema.statics.findByEmailAndPassword = async ({ email, password }) => {
     // check whether email exist
     const user = await UserModel.findOne({ email });
