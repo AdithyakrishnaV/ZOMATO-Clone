@@ -1,4 +1,4 @@
-import Aws from "aws-sdk";
+import AWS from "aws-sdk";
 
 //AWS S3 bucket config
 const s3Bucket = new AWS.S3 ({
