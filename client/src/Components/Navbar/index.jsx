@@ -6,7 +6,7 @@ import { RiSearch2Line } from "react-icons/ri";
 
 const MobileNav = () => {
     return (
-      <div className="flex w-full items-center justify-between md:hidden">
+      <div className="flex w-full items-center justify-between lg:hidden">
         <div className="w-28">
           <img
             src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
@@ -26,10 +26,11 @@ const MobileNav = () => {
     );
   };
 
-const MediumNav = () => {
+const LargeNav = () => {
     return(
       <>
-        <div className="hidden gap-4 flex w-full items-center justify-between md:flex lg:w-3/4">
+       <div className="container px-20 mx-auto">
+        <div className="hidden gap-4 flex w-full items-center justify-around lg:flex">
           
             <div className="w-28">
             <img
@@ -38,7 +39,7 @@ const MediumNav = () => {
                 className="w-full h-full"
             />
             </div>
-            <div className="w-full bg-white shadow-md p-3 flex items-center gap-3 border border-grey-200 rounded">
+            <div className="w-3/4 bg-white shadow-md p-3 flex items-center gap-3 border border-grey-200 rounded">
                 <div className="flex items-center gap-2 border-r-2 border-gray-300 pr-2">
                     <span className="text-zomato-400">
                         <HiLocationMarker />
@@ -56,11 +57,12 @@ const MediumNav = () => {
                 </div>
             </div>
           
-            <div className="flex gap-2">
+            <div className="ml-28 flex gap-4">
                 <button className="text-gray-500 text-xl hover:text-gray-800">Login</button>
                 <button className="text-gray-500 text-xl hover:text-gray-800">Signup</button>
             </div>
         </div>
+       </div>
       </>
     );
 };
@@ -72,7 +74,7 @@ const Navbar = () => {
       <>
         <nav className="p-4 bg-white shadow-md -px-4 flex items-center">
             <MobileNav/>
-            <MediumNav/>
+            <LargeNav/>
         </nav>
       </>
     );
