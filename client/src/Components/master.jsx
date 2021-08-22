@@ -5,7 +5,7 @@ const Master = () => {
     const { type }= useParams();
     return (
         <>
-           {type} 
+           
         </>
     );
 };
