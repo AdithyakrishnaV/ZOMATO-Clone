@@ -18,30 +18,6 @@ const Nutrition = () => {
            bg="red"
            image="https://dote.zmtcdn.com/prod/data/admin_assets/images/325/14a02cf7b28e5731928822d9e89a8325_1614756406.png"
         />
-        <NutritionCard 
-           bg="red"
-           image="https://dote.zmtcdn.com/prod/data/admin_assets/images/325/14a02cf7b28e5731928822d9e89a8325_1614756406.png"
-        />
-        <NutritionCard 
-           bg="red"
-           image="https://dote.zmtcdn.com/prod/data/admin_assets/images/325/14a02cf7b28e5731928822d9e89a8325_1614756406.png"
-        />
-        <NutritionCard 
-           bg="red"
-           image="https://dote.zmtcdn.com/prod/data/admin_assets/images/325/14a02cf7b28e5731928822d9e89a8325_1614756406.png"
-        />
-        <NutritionCard 
-           bg="red"
-           image="https://dote.zmtcdn.com/prod/data/admin_assets/images/325/14a02cf7b28e5731928822d9e89a8325_1614756406.png"
-        />
-        <NutritionCard 
-           bg="red"
-           image="https://dote.zmtcdn.com/prod/data/admin_assets/images/325/14a02cf7b28e5731928822d9e89a8325_1614756406.png"
-        />
-        <NutritionCard 
-           bg="red"
-           image="https://dote.zmtcdn.com/prod/data/admin_assets/images/325/14a02cf7b28e5731928822d9e89a8325_1614756406.png"
-        />
       </div>
     </div>
   );
