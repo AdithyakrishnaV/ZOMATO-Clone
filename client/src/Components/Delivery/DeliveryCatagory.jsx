@@ -19,7 +19,7 @@ const DeliverySmCard = ({ image, title }) => {
     );
 };
 
-const DeliveryLmCard = ({ image, title }) => {
+const DeliveryLgCard = ({ image, title }) => {
     return (
         <>
           <div className="hidden lg:block w-64 h-48">
@@ -42,7 +42,7 @@ const DeliveryCatagory = (props) => {
     return (
         <>
            <DeliverySmCard {...props} />
-           <DeliveryLmCard {...props} />
+           <DeliveryLgCard {...props} />
         </>
     );
 };
