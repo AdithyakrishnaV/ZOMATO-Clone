@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { IoMdArrowDropright } from "react-icons/io";
+import { MdContentCopy } from "react-icons/md";
+import { FaDirections } from "react-icons/fa";
 import Slider from "react-slick";
 import ReactStars from "react-rating-stars-component";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
@@ -10,18 +12,47 @@ import MenuCollection from '../../Components/restaurant/MenuCollection';
 import MenuSimilarRestaurantcard from '../../Components/restaurant/MenuSimilarRestaurantcard';
 import { NextArrow, PrevArrow } from '../../Components/CarousalArrow';
 import ReviewCard from '../../Components/restaurant/Reviews/reviewCard';
+import Mapview from '../../Components/restaurant/Mapview';
+
 
 const Overview = () => {
     const { id } = useParams();
     const settings = {
-        arrows: true,
-        infinite: true,
+        dots: true,
+        infinite: false,
         speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        initialSlide: 0,
         nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />
-    };
+        prevArrow: <PrevArrow />,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true,
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              initialSlide: 2,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+        ],
+      };
     const ratingChanged = (newRating) => {
         console.log(newRating);
     };
@@ -99,6 +130,14 @@ const Overview = () => {
                         activeColor="#ffd700"
                     />
                   </div>
+                  <div className="my-4 w-full md:hidden flex flex-col gap-4">
+                    <Mapview 
+                        title="New Delhi"
+                        phno="+911231231234"
+                        mapLocation={[28.656529265997893, 77.18573343218326]}
+                        address="17B, Ground Floor, Bazar Marg, Old Rajinder Nagar, Rajinder Nagar, New Delhi"
+                    />
+                  </div>
                   <div className="my-4 flex flex-col gap-4">
                       <ReviewCard />
                       <ReviewCard />
@@ -108,28 +147,14 @@ const Overview = () => {
                 </div>
                 <aside 
                    style={{ height: "fit-content" }} 
-                   className="hidden md:block md:w-full sticky rounded-xl top-2 bg-white p-3 shadow-md"
+                   className="hidden md:flex md:w-full sticky rounded-xl top-2 bg-white p-3 shadow-md flex flex-col gap-4"
                 >
-                   <div>
-                        <h4 className="text-xl font-medium">Call</h4>
-                        <h5 className="text-zomato-400 font-medium">+911148088088</h5>
-                   </div>
-                   <div>
-                       <h4 className="text-xl font-medium">Direction</h4>
-                        <div className="w-full h-48">
-                        <MapContainer center={[28.656529265997893, 77.18573343218326]} zoom={13} scrollWheelZoom={false}>
-                            <TileLayer
-                                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                            />
-                            <Marker position={[28.656529265997893, 77.18573343218326]}>
-                                <Popup>
-                                A pretty CSS3 popup. <br /> Easily customizable.
-                                </Popup>
-                            </Marker>
-                        </MapContainer>
-                        </div>
-                   </div>
+                    <Mapview 
+                        title="New Delhi"
+                        phno="+911231231234"
+                        mapLocation={[28.656529265997893, 77.18573343218326]}
+                        address="17B, Ground Floor, Bazar Marg, Old Rajinder Nagar, Rajinder Nagar, New Delhi"
+                    />
                 </aside>
             </div>
         </>
