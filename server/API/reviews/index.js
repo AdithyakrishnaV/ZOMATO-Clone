@@ -32,18 +32,18 @@ BODY     review object
 Access   public
 Method   POST
 */
-Router.post("/new",  async (req, res) => {
+Router.post("/new", passport.authenticate("jwt"), async (req, res) => {
     try {
-        const { reviewData } = req.body;
-
-        await ReviewModel.create(reviewData);
-
-        return res.json({ review: "Successfully Created Review." });
-
+      const { _id } = req.session.passport.user._doc;
+      const { reviewData } = req.body;
+  
+      await ReviewModel.create({ ...reviewData, user: _id });
+  
+      return res.json({ review: "Sucessfully Created Review." });
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+      return res.status(500).json({ error: error.message });
     }
-});
+  });
 
 /*
 Route    /delete/:_id
