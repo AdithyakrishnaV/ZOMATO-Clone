@@ -26,17 +26,18 @@ export const signIn = (userData) => async (dispatch) => {
     return dispatch({ type: "ERROR", payload: error });
   }
 };
-// export const googleAuth = (token) => async (dispatch) => {
-//   try {
-//     localStorage.setItem("zomatoUser", JSON.stringify({ token }));
 
-//     getMyself();
+export const googleAuth = (token) => async (dispatch) => {
+  try {
+    localStorage.setItem("zomatoUser", JSON.stringify({ token }));
 
-//     return dispatch({ type: GOOGLE_AUTH, payload: {} });
-//   } catch (error) {
-//     return dispatch({ type: "ERROR", payload: error });
-//   }
-// };
+    getMyself();
+
+    return dispatch({ type: GOOGLE_AUTH, payload: {} });
+  } catch (error) {
+    return dispatch({ type: "ERROR", payload: error });
+  }
+};
 
 // export const signOut = () => async (dispatch) => {
 //   try {

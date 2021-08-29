@@ -28,8 +28,9 @@ export default function SignUp({ isOpen, setIsOpen }) {
     });
     dispatch(signUp(userData));
   };
-  // const googlesignin = () =>
-  //   (window.location.href = "http://localhost:4000/auth/google");
+  
+  const googlesignin = () =>
+    (window.location.href = "http://localhost:4000/auth/google");
 
   return (
     <>
