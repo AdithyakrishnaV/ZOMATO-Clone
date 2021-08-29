@@ -27,7 +27,7 @@ const AddReviewCard = () => {
                     <label htmlFor="delivery">Delivery</label>
                 </div>
             </div>
-            <button onClick={openModel} className="text-zomato-400">Write a Review</button>
+            <button onClick={openModal} className="text-zomato-400">Write a Review</button>
         </>
     );
 };

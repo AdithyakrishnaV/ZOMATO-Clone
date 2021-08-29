@@ -32,6 +32,12 @@ if (localStorage.zomatoUser) {
 }
 
 function App() {
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (localStorage.zomatoUser) dispatch(getMyself());
+  }, []);
+
   return (
     <>
       <Route path="/" exact>
