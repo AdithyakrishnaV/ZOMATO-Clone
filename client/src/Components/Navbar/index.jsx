@@ -10,6 +10,9 @@ import gravatar from "gravatar";
 import SignIn from "../Auth/SignIn";
 import SignUp from "../Auth/SignUp";
 
+// redux actions
+import { signOut } from "../../Redux/Reducer/Auth/Auth.action";
+
 const MobileNav = ({ SignIn, SignUp }) => {
     const [isDropDownOpen, setIsDropDownOpen] = useState(false);
     const dispatch = useDispatch();
@@ -110,7 +113,6 @@ const LargeNav = ({ SignIn, SignUp }) => {
             </div>
             {reduxState?.user?.fullname ? (
               <div className="relative w-20">
-                {" "}
                 <div
                   onClick={() => setIsDropDownOpen((prev) => !prev)}
                   className="border p-2 border-gray-300 text-zomato-400 w-full h-20 rounded-full"

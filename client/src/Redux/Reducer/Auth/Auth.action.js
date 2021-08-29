@@ -39,17 +39,17 @@ export const googleAuth = (token) => async (dispatch) => {
   }
 };
 
-// export const signOut = () => async (dispatch) => {
-//   try {
-//     localStorage.removeItem("zomatoUser");
-//     clearUser();
-//     window.location.href = "http://localhost:3000/delivery";
+export const signOut = () => async (dispatch) => {
+  try {
+    localStorage.removeItem("zomatoUser");
+    clearUser();
+    window.location.href = "http://localhost:3000/delivery";
     
-//     return dispatch({ type: SIGN_OUT, payload: {} });
-//   } catch (error) {
-//     return dispatch({ type: "ERROR", payload: error });
-//   }
-// };
+    return dispatch({ type: SIGN_OUT, payload: {} });
+  } catch (error) {
+    return dispatch({ type: "ERROR", payload: error });
+  }
+};
 
 export const signUp = (userData) => async (dispatch) => {
   try {
