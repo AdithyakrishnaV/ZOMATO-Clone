@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { Link, useParams } from 'react-router-dom';
 import { IoMdArrowDropright } from "react-icons/io";
-import { MdContentCopy } from "react-icons/md";
-import { FaDirections } from "react-icons/fa";
 import Slider from "react-slick";
+import { useSelector, useDispatch } from "react-redux";
 import ReactStars from "react-rating-stars-component";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
@@ -14,8 +13,13 @@ import { NextArrow, PrevArrow } from '../../Components/CarousalArrow';
 import ReviewCard from '../../Components/restaurant/Reviews/reviewCard';
 import Mapview from '../../Components/restaurant/Mapview';
 
+import { getImage } from "../../Redux/Reducer/Image/Image.action";
+import { getReviews } from "../../Redux/Reducer/Reviews/review.action";
 
 const Overview = () => {
+    const [menuImage, setMenuImages] = useState({ images: [] });
+    const [Reviews, setReviewss] = useState([]);
+
     const { id } = useParams();
     const settings = {
         dots: true,
@@ -53,8 +57,30 @@ const Overview = () => {
           },
         ],
       };
+
+    const reduxState = useSelector(
+    (globalStore) => globalStore.restaurant.selectedRestaurant.restaurant
+    );
+    const dispatch = useDispatch();
+    useEffect(() => {
+    if (reduxState) {
+        dispatch(getImage(reduxState?.menuImage)).then((data) => {
+        const images = [];
+        data.payload.image.images.map(({ location }) => images.push(location));
+        setMenuImages(images);
+        });
+        dispatch(getReviews(reduxState?._id)).then((data) =>
+        setReviewss(data.payload.reviews)
+        );
+    }
+    }, []);
+
     const ratingChanged = (newRating) => {
         console.log(newRating);
+      };
+    
+    const getLatLong = (mapAddress) => {
+    return mapAddress?.split(",").map((item) => parseFloat(item));
     };
 
     return (
@@ -76,7 +102,7 @@ const Overview = () => {
                             pages= "3"
                             image={[
                                 "https://b.zmtcdn.com/data/menus/920/19438920/21fa39744f465abc5f947f1e9319fb5d.jpg",
-                "https://images.unsplash.com/photo-1526382551041-3c817fc3d478?dpr=2&auto=format&w=1024&h=1024",
+                                "https://images.unsplash.com/photo-1526382551041-3c817fc3d478?dpr=2&auto=format&w=1024&h=1024",
                             ]}
                         />
                   </div>
@@ -124,7 +150,7 @@ const Overview = () => {
                   </div>
                   <div className="my-4">
                     <h4 className="text-lg font-medium">
-                       Rate your experience for
+                       Rate your delivery experience
                     </h4>
                     <ReactStars
                         count={5}
@@ -132,6 +158,9 @@ const Overview = () => {
                         size={24}
                         activeColor="#ffd700"
                     />
+                    {Reviews.map((reviewData) => (
+                        <ReviewCard {...reviewData} />
+                    ))}
                   </div>
                   <div className="my-4 w-full md:hidden flex flex-col gap-4">
                     <Mapview 
