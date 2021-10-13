@@ -10,7 +10,7 @@ Map
 ----
 ![map](https://user-images.githubusercontent.com/84318379/137154958-60f0526b-548b-4f61-bef7-2f86be32300c.png)
 
-Razorpay payment gateway
+Integrate Razorpay payment gateway
 --------------------------
 ![payment](https://user-images.githubusercontent.com/84318379/137156040-30ecd365-af27-4a3f-94ea-c09fdad991b0.png)
 
