@@ -7,11 +7,11 @@ Redux action to communicate with the backend
 Google authentication
 ----------------------
 
-![signup](https://user-images.githubusercontent.com/84318379/137154455-86dddbe5-7520-4b36-b080-079eaa92067b.png)
+![signup](https://user-images.githubusercontent.com/84318379/137154455-86dddbe5-7520-4b36-b080-079eaa92067b.png)  
+![delevery](https://user-images.githubusercontent.com/84318379/137153834-cf5e70de-441a-46ea-a2b7-ad55a4033c34.png)
 
  Pages
 --------
-![delevery](https://user-images.githubusercontent.com/84318379/137153834-cf5e70de-441a-46ea-a2b7-ad55a4033c34.png)
 
 ![deli](https://user-images.githubusercontent.com/84318379/137154222-46727df4-acc6-4fab-a376-e92213763929.png)
 
