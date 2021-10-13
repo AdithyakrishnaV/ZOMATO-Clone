@@ -2,8 +2,6 @@
 
 Frontend+Backend - usingReact, AWS, MongoDb, Redux, Node/Express
 
-Redux action to communicate with the backend
-
 Google authentication
 ----------------------
 ![signup](https://user-images.githubusercontent.com/84318379/137154455-86dddbe5-7520-4b36-b080-079eaa92067b.png)  
